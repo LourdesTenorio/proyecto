@@ -1,0 +1,19 @@
+server:
+    port: 8081
+sprindoc:
+    api-docs:
+        enabled: true
+    swagger-ui:
+        enabled: true
+        path: /doc/swagger-ui-html
+spring:
+    jpa:
+        hibernate.ddl-auto: update
+        generate-ddl: true
+        show-sql : true
+        hibernate-naming-physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    datasource:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/AuthenticationDB?createDatabaseIfNotExist=true
+        username: root
+        password: 949729233
