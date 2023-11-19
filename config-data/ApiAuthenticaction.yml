@@ -1,6 +1,6 @@
 server:
     port: 8081
-sprindoc:
+springdoc:
     api-docs:
         enabled: true
     swagger-ui:
