@@ -1,0 +1,9 @@
+spring:
+    application:
+        name: ApiClient
+    profiles:
+        active: development
+    config:
+        import: optional:configserver:http://root:s3cr3et@localhost:7070
+          
+            
