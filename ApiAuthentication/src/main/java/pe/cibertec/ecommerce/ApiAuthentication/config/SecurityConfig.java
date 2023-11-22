@@ -22,7 +22,6 @@ public class SecurityConfig {
     private UserRepository userRepository;
     @Bean
     public static PasswordEncoder passwordEncoder(){
-                            //encriptador
         return new BCryptPasswordEncoder();
     }
     @Bean

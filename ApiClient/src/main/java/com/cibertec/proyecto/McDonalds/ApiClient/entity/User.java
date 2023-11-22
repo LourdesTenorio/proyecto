@@ -1,4 +1,4 @@
-package pe.cibertec.ecommerce.ApiAuthentication.entity;
+package com.cibertec.proyecto.McDonalds.ApiClient.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,8 +28,4 @@ public class User {
     private Set<Role> roles;
     private String Direcc;
     private String Phone;
-
-        
-    
-    
 }

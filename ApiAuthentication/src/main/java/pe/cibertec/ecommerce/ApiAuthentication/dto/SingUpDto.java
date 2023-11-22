@@ -12,5 +12,6 @@ public class SingUpDto {
     private String email;
     private String password;
     private Set<Role> roles;
-    
+    private String Direcc;
+    private String Phone;
 }

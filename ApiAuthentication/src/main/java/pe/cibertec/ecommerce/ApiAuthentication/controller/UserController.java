@@ -14,16 +14,17 @@ import pe.cibertec.ecommerce.ApiAuthentication.dto.LoginDto;
 import pe.cibertec.ecommerce.ApiAuthentication.dto.SingUpDto;
 import pe.cibertec.ecommerce.ApiAuthentication.entity.User;
 import pe.cibertec.ecommerce.ApiAuthentication.service.UserDetailsServiceImpl;
-import pe.cibertec.ecommerce.ApiAuthentication.service.UserService;
+import pe.cibertec.ecommerce.ApiAuthentication.service.UserServiceFeign;
 
 @RestController
 @RequestMapping("api/v1/user")
 public class UserController {
+    @Autowired
+    private UserServiceFeign userFeing;
 
     @Autowired
     private UserDetailsServiceImpl userDetailServiceImpl;
-    @Autowired
-    private UserService userService;
+    
     @Autowired
     private PasswordEncoder passwordEncoder;
 
@@ -35,8 +36,9 @@ public class UserController {
         user.setEmail(userDto.getEmail());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
         user.setRoles(userDto.getRoles());
-        //userService.add(user);
-        return new ResponseEntity<>(userService.add(user), HttpStatus.CREATED);
+        user.setDirecc(userDto.getDirecc());
+        user.setPhone(userDto.getPhone());
+        return new ResponseEntity<>(userFeing.add(user), HttpStatus.CREATED);
     }
 
     @PostMapping("/login")
@@ -54,5 +56,8 @@ public class UserController {
             return new ResponseEntity<>("Usuario o contraseña inválidos", HttpStatus.UNAUTHORIZED);
         }
     }
-
+    /*@GetMapping("/findById")
+    public ResponseEntity<?> findByEmail(@RequestParam String email){
+        return new ResponseEntity(userFeing.findByEmail(email), HttpStatus.OK);
+    }*/
 }
