@@ -4,6 +4,6 @@ spring:
     profiles:
         active: development
     config:
-        import: optional:configserver:http://root:s3cr3et@localhost:7070
+        import: optional:configserver:http://root:s3cr3t@localhost:7070
           
             
