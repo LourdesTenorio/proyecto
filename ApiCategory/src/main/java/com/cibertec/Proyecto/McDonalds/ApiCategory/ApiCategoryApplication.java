@@ -7,7 +7,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 
 @EnableDiscoveryClient
-
 @EnableFeignClients
 @SpringBootApplication
 public class ApiCategoryApplication {

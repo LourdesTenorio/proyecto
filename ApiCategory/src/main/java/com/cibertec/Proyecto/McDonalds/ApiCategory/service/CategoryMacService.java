@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 
 public interface CategoryMacService {
     public List<CategoryMcDonalds> findAll();
+    //paginacion
     public Page<CategoryMcDonalds> findAll(int page, int size); 
     public CategoryMcDonalds findById(Long id);
     public CategoryMcDonalds findByName(String categoryName);
