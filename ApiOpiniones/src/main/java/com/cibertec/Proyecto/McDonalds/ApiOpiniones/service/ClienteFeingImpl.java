@@ -1,19 +1,23 @@
 package com.cibertec.Proyecto.McDonalds.ApiOpiniones.service;
 
+import com.cibertec.Proyecto.McDonalds.ApiOpiniones.cliente.ClienteFeing;
 import com.cibertec.Proyecto.McDonalds.ApiOpiniones.dao.OpinionRepository;
 import com.cibertec.Proyecto.McDonalds.ApiOpiniones.entity.Opinion;
 import com.cibertec.Proyecto.McDonalds.ApiOpiniones.exception.EntityNotFoundException;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 @Service
-public class OpinionServiceImpl implements OpinionService{
-
+@Primary
+public class ClienteFeingImpl implements OpinionService{
     @Autowired
     private OpinionRepository opinionRepository;
+    @Autowired
+    private ClienteFeing clienteFeing;
     
     @Override
     public List<Opinion> findAll() {
@@ -22,7 +26,8 @@ public class OpinionServiceImpl implements OpinionService{
 
     @Override
     public Opinion add(Opinion opinion) {
-        return opinionRepository.save(opinion);
+        Long id = opinion.getId();
+        return   opinionRepository.save(opinion);
     }
 
     @Override
@@ -53,6 +58,5 @@ public class OpinionServiceImpl implements OpinionService{
         Opinion.setIdProduct(Opinion.getIdProduct());
         return opinionRepository.save(op);
     }
-
     
 }

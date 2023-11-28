@@ -1,0 +1,18 @@
+server:
+    port: 8090
+
+spring:
+    jpa:
+        hibernate.ddl-auto: update
+        generate-ddl: true
+        show-sql : true
+        hibernate-naming-physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    datasource:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/VentasDB?createDatabaseIfNotExist=true
+        username: root
+        password: 949729233
+eureka:
+    config:
+        service-url:
+            defaultZone=http://localhost:8761/eureka

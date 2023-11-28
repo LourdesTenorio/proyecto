@@ -16,4 +16,6 @@ public interface CategoryMacService {
     public CategoryMcDonalds add(CategoryMcDonalds categoryMc);
     public CategoryMcDonalds update(CategoryMcDonalds categoryMc);   
     public void delete(Long id);
+    public String findCategoryById(Long categoryId);
+
 }

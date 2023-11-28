@@ -14,5 +14,6 @@ public class Opinion {
     private Long id;
     private String coment;
     private Long idProduct;
+    private Long idCliente;
     
 }

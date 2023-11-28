@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
@@ -58,5 +59,9 @@ public class CategoryMacController {
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable Long id){
         categoryService.delete(id);
+    }
+    @GetMapping("/findCategoryById")
+    public String findCategoryById(@RequestParam long id){
+        return categoryService.findCategoryById(id);
     }
 }

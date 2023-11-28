@@ -16,6 +16,7 @@ public class CategoryMacServiceImpl implements CategoryMacService{
 
     @Autowired
     private CategoryRepository categoryRepository;
+    @Autowired
     
     @Override
     public List<CategoryMcDonalds> findAll() {
@@ -46,8 +47,8 @@ public class CategoryMacServiceImpl implements CategoryMacService{
     @Override
     public CategoryMcDonalds update(CategoryMcDonalds categoryMc) {
          var catMc = categoryRepository.findById(categoryMc.getIdCategory()).get();
-         categoryMc.setName(categoryMc.getName());
-         categoryMc.setImagen(categoryMc.getImagen());        
+         catMc.setName(categoryMc.getName());
+         catMc.setImagen(categoryMc.getImagen());        
          return categoryRepository.save(catMc);
     }
 
@@ -55,6 +56,13 @@ public class CategoryMacServiceImpl implements CategoryMacService{
     public void delete(Long id) {
         var categoryMc = categoryRepository.findById(id).get();
         categoryRepository.delete(categoryMc);
+    }
+
+    @Override
+    public String findCategoryById(Long categoryId) {
+        CategoryMcDonalds usuar= categoryRepository.findById(categoryId).get();
+        String nombre= usuar.getName();
+        return nombre;
     }
     
 }

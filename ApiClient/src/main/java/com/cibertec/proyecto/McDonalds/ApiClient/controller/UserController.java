@@ -35,6 +35,10 @@ public class UserController {
         
         return  userService.findAll();
     }
+    @GetMapping("/findClienteById")
+    public String findClienteById(@RequestParam long id){
+        return userService.findClienteById(id);
+    }
     @GetMapping("/findById")
     public User findById(@RequestParam long id) {
         

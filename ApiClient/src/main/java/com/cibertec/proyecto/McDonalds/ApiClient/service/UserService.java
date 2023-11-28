@@ -2,6 +2,7 @@ package com.cibertec.proyecto.McDonalds.ApiClient.service;
 
 import com.cibertec.proyecto.McDonalds.ApiClient.entity.User;
 import java.util.List;
+import java.util.Optional;
 
 
 public interface UserService {
@@ -12,4 +13,5 @@ public interface UserService {
     public void delete(Long idcustomer);
     public User findByEmail (String email);
     public User update(User user);
+    public String findClienteById(Long clienteId);
 }

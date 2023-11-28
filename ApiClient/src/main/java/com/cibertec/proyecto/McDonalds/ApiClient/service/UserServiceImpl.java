@@ -19,6 +19,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User findById(Long idcustomer) {
+       
         return customerRepository.findById(idcustomer).get();
     }
 
@@ -52,6 +53,15 @@ public class UserServiceImpl implements UserService{
         customerBD.setPhone(customers.getPhone());
         return customerRepository.save(customerBD);
     }
+
+    @Override
+    public String findClienteById(Long clienteId) {
+        User usuar= customerRepository.findById(clienteId).get();
+        String nombre= usuar.getName();
+        return nombre;
+    }
+
+    
 
 
    

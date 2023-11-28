@@ -1,5 +1,6 @@
 package com.cibertec.Poryecto.McDonalds.ApiPlatos.controller;
 
+import com.cibertec.Poryecto.McDonalds.ApiPlatos.category.CategoryFeing;
 import com.cibertec.Poryecto.McDonalds.ApiPlatos.entity.Product;
 import com.cibertec.Poryecto.McDonalds.ApiPlatos.service.ProductService;
 import java.util.List;
@@ -21,7 +22,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductController {    
     @Autowired
     private ProductService productService;
-    
+    @Autowired
+    private CategoryFeing categoryFeing;
+
     @GetMapping("/findAll")
     public ResponseEntity<List<Product>> findAll(){
         return new ResponseEntity<>(productService.findAll(),
@@ -47,8 +50,10 @@ public class ProductController {
     }
     
     @PostMapping("/add")
-    public ResponseEntity<Product> add(@RequestBody Product product){
-        return new ResponseEntity<>(productService.add(product),
+    public ResponseEntity<?> add(@RequestBody Product product){
+        Long id= product.getIdcategory();
+        
+        return new ResponseEntity<>("El plato ha sido guardado en la categoria: "+ categoryFeing.findCategoryById(id)+  productService.add(product),
                 HttpStatus.CREATED);
     }
     
