@@ -18,7 +18,11 @@
         <spring-cloud.version>2022.0.4</spring-cloud.version>
     </properties>
     <dependencies>
-            
+            <dependency>
+	<groupId>net.logstash.logback</groupId>
+	<artifactId>logstash-logback-encoder</artifactId>
+	<version>7.2</version>
+</dependency>
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>

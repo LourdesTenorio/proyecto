@@ -1,5 +1,6 @@
 package pe.cibertec.ecommerce.ApiAuthentication.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,20 +17,23 @@ import pe.cibertec.ecommerce.ApiAuthentication.entity.User;
 import pe.cibertec.ecommerce.ApiAuthentication.service.UserDetailsServiceImpl;
 import pe.cibertec.ecommerce.ApiAuthentication.service.UserServiceFeign;
 
+@Slf4j
 @RestController
 @RequestMapping("api/v1/user")
 public class UserController {
+
     @Autowired
     private UserServiceFeign userFeing;
 
     @Autowired
     private UserDetailsServiceImpl userDetailServiceImpl;
-    
+
     @Autowired
     private PasswordEncoder passwordEncoder;
 
     @PostMapping("/signup")
     public ResponseEntity<?> registerUser(@RequestBody SingUpDto userDto) {
+        log.info("Registrando nuevo usuario: {}", userDto.getEmail());
         User user = new User();
         user.setName(userDto.getName());
         user.setUserName(userDto.getUserName());
@@ -38,26 +42,26 @@ public class UserController {
         user.setRoles(userDto.getRoles());
         user.setDirecc(userDto.getDirecc());
         user.setPhone(userDto.getPhone());
-        return new ResponseEntity<>(userFeing.add(user), HttpStatus.CREATED);
+        User registeredUser = userFeing.add(user);
+        log.info("Usuario registrado con éxito: {}", registeredUser.getEmail());
+        return new ResponseEntity<>(registeredUser, HttpStatus.CREATED);
     }
 
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody LoginDto loginDto) {
+        log.info("Intento de inicio de sesión para el usuario: {}", loginDto.getEmail());
         try {
             UserDetails userDetails = userDetailServiceImpl.loadUserByUsername(loginDto.getEmail());
-
             if (passwordEncoder.matches(loginDto.getPassword(), userDetails.getPassword())) {
-
+                log.info("Inicio de sesión exitoso para el usuario: {}", loginDto.getEmail());
                 return new ResponseEntity<>("Login exitoso", HttpStatus.OK);
             } else {
+                log.warn("Usuario o contraseña inválidos para el usuario: {}", loginDto.getEmail());
                 return new ResponseEntity<>("Usuario o contraseña inválidos", HttpStatus.UNAUTHORIZED);
             }
         } catch (UsernameNotFoundException e) {
+            log.warn("Usuario o contraseña inválidos para el usuario: {}", loginDto.getEmail());
             return new ResponseEntity<>("Usuario o contraseña inválidos", HttpStatus.UNAUTHORIZED);
         }
     }
-    /*@GetMapping("/findById")
-    public ResponseEntity<?> findByEmail(@RequestParam String email){
-        return new ResponseEntity(userFeing.findByEmail(email), HttpStatus.OK);
-    }*/
 }
