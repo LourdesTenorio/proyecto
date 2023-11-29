@@ -11,7 +11,7 @@ spring:
         driverClassName: com.mysql.cj.jdbc.Driver
         url: jdbc:mysql://localhost:3306/platosBD?createDatabaseIfNotExist=true
         username: root
-        password: 949729233
+        password: mysql
 eureka:
     config:
         service-url:
