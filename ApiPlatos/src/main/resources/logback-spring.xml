@@ -12,11 +12,9 @@
                 <pattern>
                     <pattern>
                         {
-<<<<<<< HEAD
-                        "app": "apiPlatos-log"
-=======
-                        "app": "ApiPlatos-log"
->>>>>>> e4564c58036ac4c54d242ae819b3a223e63f6553
+
+                        "app": "apiplatos-log"
+
                         }
                     </pattern>
                 </pattern>

@@ -12,7 +12,7 @@
                 <pattern>
                     <pattern>
                         {
-                        "app": "apiConfig-log"
+                        "app": "apiconfig-log"
                         }
                     </pattern>
                 </pattern>

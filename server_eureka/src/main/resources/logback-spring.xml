@@ -12,7 +12,7 @@
                 <pattern>
                     <pattern>
                         {
-                        "app": "apiEureka-log"
+                        "app": "apieureka-log"
                         }
                     </pattern>
                 </pattern>
