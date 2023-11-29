@@ -11,7 +11,7 @@ spring:
         driverClassName: com.mysql.cj.jdbc.Driver
         url: jdbc:mysql://localhost:3306/ApiCategoryMac?createDatabaseIfNotExist=true
         username: root
-        password: mysql
+        password: 949729233
 eureka:
     config:
         service-url:
