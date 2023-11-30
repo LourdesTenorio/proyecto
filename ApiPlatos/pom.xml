@@ -14,7 +14,7 @@
     <name>ApiPlatos</name>
     <description>Demo project for Spring Boot</description>
     <properties>
-        <java.version>20</java.version>
+        <java.version>17</java.version>
         <spring-cloud.version>2022.0.4</spring-cloud.version>
     </properties>
     <dependencies>
@@ -29,7 +29,7 @@
 	<groupId>net.logstash.logback</groupId>
 	<artifactId>logstash-logback-encoder</artifactId>
 	<version>7.2</version>
-</dependency>
+        </dependency>
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>

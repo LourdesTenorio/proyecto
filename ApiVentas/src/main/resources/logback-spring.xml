@@ -12,7 +12,7 @@
                 <pattern>
                     <pattern>
                         {
-                        "app": "apiVentas-log"
+                        "app": "apiventas-log"
                         }
                     </pattern>
                 </pattern>
