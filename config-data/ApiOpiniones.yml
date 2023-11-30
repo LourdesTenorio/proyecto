@@ -11,7 +11,7 @@ spring:
         driverClassName: com.mysql.cj.jdbc.Driver
         url: jdbc:mysql://localhost:3306/opinionBD?createDatabaseIfNotExist=true
         username: root
-        password: msql
+        password: mysql
 eureka:
     config:
         service-url:
